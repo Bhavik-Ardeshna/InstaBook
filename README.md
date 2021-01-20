@@ -10,7 +10,7 @@
 git clone -b https://github.com/Bhavik-Ardeshna/InstaBook.git
 cd socialClone
 ```
-##Step to run InstaBook in local machine
+## Step to run InstaBook in local machine
 
 > **Step to run `virtualenv`**
 
