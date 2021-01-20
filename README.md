@@ -6,7 +6,7 @@
 
 ## Get a copy of source code
 
-- Clone the Open Event Server repository (from the development branch) and `cd ` into the directory.
+- Clone the InstaBook (from the main branch) and `cd ` into the directory.
 
 ```sh
 git clone -b https://github.com/Bhavik-Ardeshna/InstaBook.git
