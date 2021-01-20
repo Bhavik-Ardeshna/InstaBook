@@ -1,6 +1,6 @@
 # InstaBook 👋
 
-##<img title="Django" height="50" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg"/> 
+<img title="Django" height="50" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg"/> 
 
 > **Step to run InstaBook in local machine**
 
