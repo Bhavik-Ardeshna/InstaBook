@@ -1,0 +1,11 @@
+.navbar__logo{
+    width: 55px;
+    object-fit: contain;
+    margin: 0 5px;
+    margin-top: 5px;
+}
+
+.navbar__brand{
+    font-family: 'Rock Salt', cursive;
+}
+
