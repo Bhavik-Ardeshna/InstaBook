@@ -5,7 +5,7 @@ app_name = 'post'
 
 
 urlpatterns = [
-    path('',views.Index,name='index'),
-    path('newpost/',views.NewPost,name='newpost'),
+    path('', views.Index, name='index'),
+    path('newpost/', views.NewPost, name='newpost'),
 
 ]

@@ -32,30 +32,37 @@ def Index(request):
 
 @login_required
 def NewPost(request):
+    user = request.user
+    tags_objs = []
+    files_objs = []
 
-    user = request.user.id
-    tags_obj = []
     if request.method == 'POST':
-        form = NewPostForm(request.POST or None, request.FILES or None)
-        # check if form data is valid
+        form = NewPostForm(request.POST, request.FILES)
         if form.is_valid():
-            picture = request.cleaned_data.get('content')
-            caption = request.cleaned_data.get('caption')
-            tags_form = request.cleaned_data.get('tags')
-
+            files = request.FILES.getlist('content')
+            caption = form.cleaned_data.get('caption')
+            tags_form = form.cleaned_data.get('tags')
             tags_list = list(tags_form.split(','))
 
-            for tags in tags_list:
+            for tag in tags_list:
                 t, created = Tag.objects.get_or_create(title=tag)
-                tags_obj.append(t)
-            p, created = Post.objects.get_or_create(
-                content=picture, caption=caption, id=user)
-            p.tags.set(tags_obj)
+                tags_objs.append(t)
+
+            for file in files:
+                file_instance = PostFileContent(file=file, user=user)
+                file_instance.save()
+                files_objs.append(file_instance)
+
+            p, created = Post.objects.get_or_create(caption=caption, user=user)
+            p.tags.set(tags_objs)
+            p.content.set(files_objs)
             p.save()
-            return redirect('index')
+            return redirect('post:index')
     else:
         form = NewPostForm()
+
     context = {
         'form': form,
     }
+
     return render(request, 'newpost.html', context)
