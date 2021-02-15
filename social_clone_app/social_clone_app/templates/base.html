@@ -22,6 +22,17 @@
 
     <title>Social Clone</title>
 </head>
+<style>
+    .profile-head {
+        transform: translateY(5rem)
+    }
+
+    .cover {
+        background-image: url(https://images.unsplash.com/photo-1530305408560-82d13781b33a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+        background-size: cover;
+        background-repeat: no-repeat
+    }
+</style>
 
 <body>
     <!-- *********  Nav Bar  **************************************************************************************** -->
@@ -67,7 +78,7 @@
                 </ul>
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'profile' request.user %}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-person-square" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
