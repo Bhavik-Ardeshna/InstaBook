@@ -2,14 +2,48 @@
 {% load static %}
 
 {% block content %}
-<h1>Add Post </h1>
 
-<form method="post" enctype="multipart/form-data" role="form">
-    {% csrf_token %}
-    {{ form.content }}
-    {{ form.caption }}
-    {{ form.tags }}
-    <input type="submit" value="Create Post">
-</form>
+<div class="container">
+    <div class="add-post-box">
+        <div class="position-relative  my-4 ">
+
+            <div class="my-4 text-center mb-4 my-3 ">
+                <h1 class="bounce-in-right display-1 my-3"><strong>Add Post </strong></h1>
+            </div>
+
+            <div class="position-relative my-4 ">
+
+                <div class="space-cent mt-1 ">
+
+                    <form method="post" enctype="multipart/form-data" role="form">
+                        {% csrf_token %}
+                        <div class="my-3">
+                            <p class="h3">Image :
+                                {{ form.content }}</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">Caption :
+                                {{ form.caption }}</p>
+
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">Tags :
+                                {{ form.tags }}</p>
+                        </div>
+
+                        <div class="rotate-in-down-left">
+
+                            <button type="submit" class="btn btn-warning btn-lg">Create Post</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
 
 {% endblock content %}

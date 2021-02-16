@@ -12,13 +12,14 @@
                         <div class="profile mr-3">
                             {% if profile.picture %}
                             <img src="{{ profile.picture.url }}" alt="..." width="130"
-                                class="rounded mb-2 img-thumbnail">
+                                class="bounce-in-right rounded mb-2 img-thumbnail">
                             {% else %}
                             <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80"
                                 alt="..." width="130" class="rounded mb-2 img-thumbnail">
                             {% endif %}
                             <div class="media-body mb-5 text-white">
-                                <h4 class="mt-0 mb-0">{{ profile.first_name }}{{" "}}{{profile.last_name}}</h4>
+                                <h4 class="mt-0 mb-0 bounce-in-right">
+                                    {{ profile.first_name }}{{" "}}{{profile.last_name}}</h4>
                                 <small class="mt-0 mb-0"><em>@{{ profile.user }}</em></small>
                                 <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>{{profile.location}}
                                 </p>
@@ -30,16 +31,17 @@
                 <div class="bg-light p-4 d-flex justify-content-end text-center">
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">{{ posts_count }}</h5><small class="text-muted">
+                            <h5 class="font-weight-bold mb-0 d-block rotate-in-down-left">{{ posts_count }}</h5><small
+                                class="text-muted">
                                 <i class="fas fa-image mr-1"></i>Post</small>
                         </li>
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">{{ following_count }}</h5><small
-                                class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
+                            <h5 class="font-weight-bold mb-0 d-block rotate-in-down-left">{{ following_count }}</h5>
+                            <small class="text-muted"> <i class="fas fa-user mr-1"></i>Following</small>
                         </li>
                         <li class="list-inline-item">
-                            <h5 class="font-weight-bold mb-0 d-block">{{ followers_count }}</h5><small
-                                class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
+                            <h5 class="font-weight-bold mb-0 d-block rotate-in-down-left">{{ followers_count }}</h5>
+                            <small class="text-muted"> <i class="fas fa-user mr-1"></i>Followers</small>
                         </li>
                     </ul>
                 </div>
@@ -57,7 +59,7 @@
 
 
                     <div class="container">
-                        <div class="row">
+                        <div class="row bounce-in-right">
                             {% for post in posts %}
                             <!-- {% cycle 'odd' 'even' %} -->
                             {% if cycle == 'odd' %}
