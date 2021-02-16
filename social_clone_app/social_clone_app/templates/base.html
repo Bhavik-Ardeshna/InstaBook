@@ -32,6 +32,65 @@
         background-size: cover;
         background-repeat: no-repeat
     }
+
+    .space-cent {
+        position: absolute;
+        left: 26%;
+    }
+
+    .bounce-in-right {
+        animation: bounce-in-right 2s ease 1;
+    }
+
+    @keyframes bounce-in-right {
+        0% {
+            opacity: 0;
+            transform: translateX(2000px);
+        }
+
+        60% {
+            opacity: 1;
+            transform: translateX(-30px);
+        }
+
+        80% {
+            transform: translateX(10px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    .rotate-in-down-left {
+        animation: rotate-in-down-left 2s ease 1;
+    }
+
+    @keyframes rotate-in-down-left {
+        0% {
+            transform-origin: left bottom;
+            transform: rotate(-90deg);
+            opacity: 0;
+        }
+
+        100% {
+            transform-origin: left bottom;
+            transform: rotate(0);
+            opacity: 1;
+        }
+    }
+
+    .add-post-box {
+        color: white;
+        background: rgba(0, 0, 0, 0.85);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+        -o-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+        -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), inset 0 1px rgba(255, 255, 255, 0.3), inset 0 10px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.25), inset 0 -15px 30px rgba(0, 0, 0, 0.3);
+
+        height: 600px;
+        border-radius: 25px;
+    }
 </style>
 
 <body>
@@ -112,9 +171,11 @@
 
 
 
+    <div class="">
 
-    {% block content %}
-    {% endblock content %}
+        {% block content %}
+        {% endblock content %}
+    </div>
 
     <!-- ***************************************************************************************************** -->
     <!-- Script -->
