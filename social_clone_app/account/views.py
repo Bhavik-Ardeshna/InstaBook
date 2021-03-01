@@ -8,9 +8,11 @@ from . import forms
 from django.core.paginator import Paginator
 from django.urls import resolve
 
+from django.contrib.auth.decorators import login_required
 from post.models import Post, Follow, Stream
 
 
+@login_required
 def UserProfile(request, username):
     user = get_object_or_404(User, username=username)
     profile = models.Profile.objects.get(user=user)
