@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from . import models
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.urls import reverse
 from post.models import Stream, Post, Tag, Likes, PostFileContent
 from post.forms import NewPostForm
+from comment.models import Comment
+from comment.forms import CommentForm
 # Create your views here.
 
 
@@ -66,3 +68,31 @@ def NewPost(request):
     }
 
     return render(request, 'newpost.html', context)
+
+
+@login_required
+def PostDetails(request, post_id):
+    post = get_object_or_404(Post, id=post_id)
+    user = request.user
+    print(user)
+    comment = Comment.objects.filter(post=post).order_by('date')
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.user = user
+            comment.save()
+
+            return HttpResponseRedirect(reverse('postdetails', args=[post_id]))
+    else:
+        form = CommentForm()
+    template = loader.get_template('post_detail.html')
+
+    context = {
+        'post': post,
+        'comment': comment,
+        'form': form,
+    }
+
+    return HttpResponse(template.render(context, request))

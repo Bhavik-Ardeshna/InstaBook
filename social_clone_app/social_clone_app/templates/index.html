@@ -15,7 +15,9 @@
             {% for post in post_items  %}
 
             <div class="card mb-5" style="max-width: 700px;">
-                <img src="{{post.content.first.file.url}}" height="700px" class="card-img-top" alt="...">
+                <a href="{% url 'post:postdetails' post.id %}">
+                    <img src="{{post.content.first.file.url}}" height="700px" class="card-img-top" alt="...">
+                </a>
                 <div class="card-body">
                     <div class="card__name">
                         <div class="card__small_profile">
