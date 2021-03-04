@@ -9,6 +9,7 @@ from post.models import Stream, Post, Tag, Likes, PostFileContent
 from post.forms import NewPostForm
 from comment.models import Comment
 from comment.forms import CommentForm
+from account.models import Profile
 # Create your views here.
 
 
@@ -74,8 +75,16 @@ def NewPost(request):
 def PostDetails(request, post_id):
     post = get_object_or_404(Post, id=post_id)
     user = request.user
-    print(user)
+    profile = Profile.objects.get(user=user)
     comment = Comment.objects.filter(post=post).order_by('date')
+
+    if request.user.is_authenticated:
+        profile = Profile.objects.get(user=user)
+        # For the color of the favorite button
+
+        if profile.favorites.filter(id=post_id).exists():
+            favorited = True
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -84,7 +93,7 @@ def PostDetails(request, post_id):
             comment.user = user
             comment.save()
 
-            return HttpResponseRedirect(reverse('postdetails', args=[post_id]))
+            return HttpResponseRedirect(reverse('post:postdetails', args=[post_id]))
     else:
         form = CommentForm()
     template = loader.get_template('post_detail.html')
@@ -93,6 +102,7 @@ def PostDetails(request, post_id):
         'post': post,
         'comment': comment,
         'form': form,
+        'profile': profile,
     }
 
     return HttpResponse(template.render(context, request))

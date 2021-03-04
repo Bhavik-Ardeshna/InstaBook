@@ -52,9 +52,8 @@
                         {{post.caption}}
                     </p>
                     <div class=" form-group">
-                                    <input type="text" class="form-control" id="comment" aria-describedby="commentHelp"
-                                        placeholder="Enter comment">
-                                    <button class="btn btn-primary my-2" type="submit">Comment</button>
+                                    <a href="{% url 'post:postdetails' post.id %}"> <button
+                                            class="btn btn-outline-info my-2" type="submit">Comment</button></a>
 
                 </div>
                 <p class=" card-text"><small class="text-muted"><time datetime="2020-1-1">{{post.posted}}</time>
