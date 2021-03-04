@@ -54,10 +54,10 @@ def SignView(request):
         if form.is_valid():
             user = form.save(commit=False)
             user.save()
-            messages.success(request, "You are Signed up, Plz Login!")
+            print("You are Signed up, Plz Login!")
             return redirect('account:login')
-        # else:
-            # messages.error(request,"Plz SigneUp again!")
+        else:
+            print("Plz SigneUp again!")
     else:
         form = forms.SignUpForm()
     return render(request, 'signup.html', {'form': form})
