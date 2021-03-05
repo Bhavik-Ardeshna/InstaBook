@@ -106,3 +106,25 @@ def PostDetails(request, post_id):
     }
 
     return HttpResponse(template.render(context, request))
+
+
+@login_required
+def like(request, post_id):
+    user = request.user
+    post = Post.objects.get(id=post_id)
+    current_likes = post.likes
+    liked = Likes.objects.filter(user=user, post=post).count()
+
+    if not liked:
+        like = Likes.objects.create(user=user, post=post)
+        # like.save()
+        current_likes = current_likes + 1
+
+    else:
+        Likes.objects.filter(user=user, post=post).delete()
+        current_likes = current_likes - 1
+
+    post.likes = current_likes
+    post.save()
+
+    return HttpResponseRedirect(reverse('post:postdetails', args=[post_id]))
