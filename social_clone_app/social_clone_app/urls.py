@@ -25,6 +25,7 @@ urlpatterns = [
     path('post/', include("post.urls")),
     path('', include("account.urls")),
     path('admin/', admin.site.urls),
+    path('notifications/', include('notifications.urls')),
     path('<username>/', UserProfile, name='profile'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
