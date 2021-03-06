@@ -18,6 +18,12 @@ cd socialClone
 source bin/activate
 ```
 
+> **Install all Dependencies `requirements.txt`**
+
+```sh
+pip3 install requirements.txt
+```
+
 > **Start `Django project`**
 
 ```sh
