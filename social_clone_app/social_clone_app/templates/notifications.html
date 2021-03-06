@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+<div class="container my-5">
+
+    {% for notification in notifications %}
+
+    <!-- comment -->
+    {% if notification.notification_type == 2 %}
+    <div class="row justify-content-center ">
+        <div class="card border border-5 mb-3" style="max-width: 840px;">
+
+            <div class="row g-0">
+                <div class="col-md-4 my-5 ps-5">
+                    <img height="150px" width="140px" class="border border-dark border-5 rounded-3"
+                        src="{{ notification.sender.profile.picture.url }}" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="position-absolute top-0 end-0">
+                        <a href="{% url 'notification:delete-notification' notification.id %}"><svg
+                                xmlns=" http://www.w3.org/2000/svg" height="34px" width="34px" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd" />
+                            </svg></a>
+                    </div>
+                    <div class="d-flex">
+
+                        <div class="card-body my-4">
+                            <h2 class="card-title"><strong>{{ notification.sender.profile.first_name }}
+                                    {{ notification.sender.profile.last_name }}</strong>
+                                <small>@{{ notification.sender.username }}</small>
+                            </h2>
+                            <div>
+                                <h5>commented</h5>
+                            </div>
+                            <p class="card-text">{{ notification.text_preview }}</p>
+                            <p class="card-text"><small class="text-muted">{{ notification.date }}
+                                    ago</small></p>
+                        </div>
+                        <div>
+                            <img height="280px" width="240px" class="border border-dark border-5 my-5 rounded-3"
+                                src="{{ notification.post.content.first.file.url }}" alt="...">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- like -->
+    {% if notification.notification_type == 1 %}
+    <div class="row justify-content-center mb-3 ">
+        <div class="card border border-5 mb-3" style="max-width: 840px;">
+
+            <div class="row g-0">
+                <div class="col-md-4 my-5 ps-5">
+                    <img height="150px" width="140px" class="border border-dark border-5 rounded-3"
+                        src="{{ notification.sender.profile.picture.url }}" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="position-absolute top-0 end-0">
+                        <a href="{% url 'notification:delete-notification' notification.id %}"><svg
+                                xmlns=" http://www.w3.org/2000/svg" height="34px" width="34px" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                    clip-rule="evenodd" />
+                            </svg></a>
+                    </div>
+                    <div class="card-body my-4">
+                        <h2 class="card-title"><strong>{{ notification.sender.profile.first_name }}
+                                {{ notification.sender.profile.last_name }}</strong>
+                            <small>@{{ notification.sender.username }}</small>
+                        </h2>
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30px" width="30px" viewBox="0 0 20 20"
+                                fill="currentColor">
+                                <path
+                                    d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+                            </svg>
+                        </div>
+                        <h6 class="card-text mb-4">Liked the post</h6>
+                        <p class="card-text"><small class="text-muted">{{ notification.date }} ago</small></p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- follow -->
+    {% if notification.notification_type == 3 %}
+    <div class="row justify-content-center ">
+        <div class="card border border-5 mb-3" style="max-width: 840px;">
+
+            <div class="row g-0">
+                <div class="col-md-4 my-5 ps-5">
+                    <img height="150px" width="140px" class="border border-dark border-5 rounded-3"
+                        src="https://source.unsplash.com/random" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="position-absolute top-0 end-0">
+                        <svg xmlns=" http://www.w3.org/2000/svg" height="34px" width="34px" viewBox="0 0 20 20"
+                            fill="currentColor">
+                            <path fill-rule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                    <div class="card-body my-4">
+                        <h2 class="card-title">Card title</h2>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                            additional
+                            content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    {% endfor %}
+</div>
+{% endblock content %}
