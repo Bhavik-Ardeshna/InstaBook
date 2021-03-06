@@ -64,12 +64,16 @@
                             <!-- {% cycle 'odd' 'even' %} -->
                             {% if cycle == 'odd' %}
                             <div class="col">
-                                <img src="{{post.content.first.file.url}}" alt="" class="img-fluid rounded shadow-sm">
+                                <a href="{% url 'post:postdetails' post.id %}"><img
+                                        src="{{post.content.first.file.url}}" alt=""
+                                        class="img-fluid rounded shadow-sm"></a>
 
                             </div>
                             {% else %}
                             <div class="col">
-                                <img src="{{post.content.first.file.url}}" alt="" class="img-fluid rounded shadow-sm">
+                                <a href="{% url 'post:postdetails' post.id %}"><img
+                                        src="{{post.content.first.file.url}}" alt=""
+                                        class="img-fluid rounded shadow-sm"></a>
 
                             </div>
                             {% endif %}
