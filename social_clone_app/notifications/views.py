@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
-
+from django.contrib.auth.decorators import login_required
 from notifications.models import Notification
 
 
+@login_required
 def ShowNotifications(request):
     user = request.user
     notification = Notification.objects.filter(user=user).order_by("-date")
