@@ -23,6 +23,7 @@
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/direct.css' %}">
 
     <title>InstaBook</title>
 </head>
@@ -193,7 +194,7 @@
                 </ul>
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{% url 'direct:inbox' %}">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
                                 class="bi bi-chat" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
