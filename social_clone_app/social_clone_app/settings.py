@@ -134,7 +134,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-# # For Login and Logout
-# # LOGIN_REDIRECT_URL = 'signup'
-# LOGOUT_REDIRECT_URL = 'login'
-# LOGIN_URL = '/user/login/'
+# For Login and Logout
+LOGIN_REDIRECT_URL = 'account:login'
+LOGOUT_REDIRECT_URL = 'account:login'
+LOGIN_URL = '/'
