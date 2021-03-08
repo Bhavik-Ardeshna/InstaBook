@@ -15,6 +15,10 @@
         href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&family=Elsie+Swash+Caps:wght@900&family=Megrim&family=Montserrat+Subrayada:wght@700&family=Nothing+You+Could+Do&family=Rock+Salt&display=swap"
         rel="stylesheet">
 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Frijole&family=Kaushan+Script&family=Major+Mono+Display&family=Megrim&family=Nanum+Pen+Script&family=Parisienne&family=Poiret+One&display=swap"
+        rel="stylesheet">
 
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -80,6 +84,52 @@
         }
     }
 
+    .flip {
+        backface-visibility: visible !important;
+        animation: flip 2s ease 1;
+    }
+
+    @keyframes flip {
+        0% {
+            transform: perspective(400px) rotateY(0);
+            animation-timing-function: ease-out;
+        }
+
+        40% {
+            transform: perspective(400px) translateZ(150px) rotateY(170deg);
+            animation-timing-function: ease-out;
+        }
+
+        50% {
+            transform: perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+            animation-timing-function: ease-in;
+        }
+
+        80% {
+            transform: perspective(400px) rotateY(360deg) scale(.95);
+            animation-timing-function: ease-in;
+        }
+
+        100% {
+            transform: perspective(400px) scale(1);
+            animation-timing-function: ease-in;
+        }
+    }
+
+    .grow {
+        animation: grow 2s ease 1;
+    }
+
+    @keyframes grow {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
     .add-post-box {
         color: white;
         background: rgba(0, 0, 0, 0.85);
@@ -90,6 +140,15 @@
 
         height: 600px;
         border-radius: 25px;
+    }
+
+    .user__name {
+        font-family: 'Poiret One', cursive;
+        padding-top: 20px;
+        padding-left: 10px;
+        padding-right: 20px;
+        font-size: 1.5em;
+        font-weight: 800
     }
 </style>
 
@@ -112,6 +171,11 @@
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-primary" type="submit">Search</button>
                 </form>
+                <div class="user__name_hover">
+                    <p class="user__name grow">
+                        Welcome, {{" "}}{{request.user.username}}
+                    </p>
+                </div>
                 <ul class="navbar-nav  mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'notification:show-notifications' %}">
@@ -161,6 +225,17 @@
                                     d="M14 1H2a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                 <path fill-rule="evenodd"
                                     d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account:signout' %}">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="30" height="30"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                             </svg>
                         </a>
                     </li>
