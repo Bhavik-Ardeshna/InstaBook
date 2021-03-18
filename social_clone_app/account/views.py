@@ -102,7 +102,7 @@ def EditProfile(request):
             profile.url = form.cleaned_data.get('url')
             profile.profile_info = form.cleaned_data.get('profile_info')
             profile.save()
-            return redirect('index')
+            return redirect('post:index')
     else:
         form = forms.EditProfileForm()
 
