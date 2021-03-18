@@ -127,6 +127,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'social_clone_app/static')
 ]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 # Create Media Where all uploaded photo is stored

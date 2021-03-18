@@ -1,0 +1,44 @@
+
+.story__image{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin-left: -40px;
+}
+
+
+.card__title{
+    margin: 5px;
+    margin-left: -230px;
+}
+
+.card__name{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card__small_profile{
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    padding: 5px;
+    padding-left: 50px;
+}
+
+.card__username{
+    padding-left: 30px;
+    margin-bottom: 5px;
+
+}
+
+.card__username > p{
+    margin-top: -10px;
+}
+
+.card__likes{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
