@@ -24,7 +24,8 @@
                                 <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>{{profile.location}}
                                 </p>
                             </div>
-                            <a href="#" class="btn btn-outline-dark btn-sm btn-block ">Edit profile</a>
+                            <a href="{% url 'account:edit-profile' %}"
+                                class="btn btn-outline-dark btn-sm btn-block ">Edit profile</a>
                         </div>
                     </div>
                 </div>

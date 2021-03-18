@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+
+
+{% block content %}
+
+
+<div class="container">
+    <div class="add-post-box">
+        <div class="position-relative  my-4 ">
+
+            <div class="my-4 text-center mb-4 my-3 ">
+                <h1 class="bounce-in-right display-1 my-3"><strong>Edit Profile </strong></h1>
+            </div>
+
+            <div class="position-relative my-4 ">
+
+                <div class="space-cent mt-1 ">
+
+                    <form method="post" enctype="multipart/form-data" role="form">
+                        {% csrf_token %}
+                        <div class="my-3">
+                            <p class="h3">Profile Picture :
+                                {{ form.picture }}</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">First Name :
+                                {{ form.first_name }}</p>
+
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">Last Name :
+                                {{ form.last_name }}</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">Location :
+                                {{ form.location }}</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">Url :
+                                {{ form.url }}</p>
+                        </div>
+                        <div class="my-3">
+                            <p class="h3">Profile Bio :
+                                {{ form.profile_info }}</p>
+                        </div>
+
+                        <div class="rotate-in-down-left">
+
+                            <button type="submit" class="btn btn-warning btn-lg">Save Profile</button>
+                        </div>
+
+
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock content %}

@@ -142,7 +142,7 @@
       padding: 0%;
       margin: 0%;
       line-height: normal;
-
+  
   }
 
   .sidebar__search{
@@ -155,8 +155,9 @@
       position: relative;
       top:17px;
       right: -10px;
-      border-radius: 13px 0px 0px 13px;
       padding: 10px;
+      box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+  
   }
 
  
