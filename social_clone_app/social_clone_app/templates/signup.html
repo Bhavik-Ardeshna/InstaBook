@@ -86,7 +86,8 @@
         opacity: 0.6;
     }
 
-    .login-form input[type="submit"] {
+    .login-form input[type="submit"],
+    input[type="button"] {
         background-color: #E0E0E0;
         background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
         width: 100%;
@@ -126,19 +127,13 @@
 <body>
 
     <div class="box" method="post">
-        <form class="login-form">
+        <form class="login-form" method="POST">
             <h1>SignUp</h1>
-            <!-- {% csrf_token %}
-            {{form.as_p}} -->
-            {% for field in form %}
-            <div class="fieldWrapper">
-                {{ field.errors }}
-                {{ field.label_tag }} {{ field }}
+            {% csrf_token %}
+            {{form.as_p}}
 
-            </div>
-            {% endfor %}
             <input type="submit" value="SignUp">
-
+            <a href="{%url 'account:login'%}"><input type="button" value="Already have an account!"></a>
         </form>
     </div>
 

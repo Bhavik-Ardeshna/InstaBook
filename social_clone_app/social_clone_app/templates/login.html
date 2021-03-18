@@ -87,7 +87,8 @@
         opacity: 0.6;
     }
 
-    .login-form input[type="submit"] {
+    .login-form input[type="submit"],
+    input[type="button"] {
         background-color: #E0E0E0;
         background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
         width: 100%;
@@ -133,8 +134,8 @@
             {{form.as_p}}
 
             <input type="submit" value="Login">
+            <a href="{%url 'account:signup'%}"><input type="button" value="Create Account"></a>
         </form>
-    </div>
 
     </div>
 </body>
