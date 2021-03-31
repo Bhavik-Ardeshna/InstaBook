@@ -1,4 +1,4 @@
-# <img   src="http://pngimg.com/uploads/instagram/instagram_PNG16.png"/>InstaBook
+# <img  height="30px" width="30px" src="http://pngimg.com/uploads/instagram/instagram_PNG16.png"/>InstaBook
 ## - [Deployed environment  http://arvik.pythonanywhere.com/](http://arvik.pythonanywhere.com/)
 
 <img title="Django" height="50" src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg"/> 
